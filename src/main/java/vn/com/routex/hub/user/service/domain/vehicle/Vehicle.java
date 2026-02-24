@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import vn.com.routex.driver.service.domain.auditing.AbstractAuditingEntity;
+import vn.com.routex.hub.user.service.domain.auditing.AbstractAuditingEntity;
 
 @Getter
 @Setter
