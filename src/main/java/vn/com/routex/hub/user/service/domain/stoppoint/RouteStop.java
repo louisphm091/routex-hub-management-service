@@ -29,9 +29,6 @@ public class RouteStop extends AbstractAuditingEntity {
     @Column(name = "ROUTE_ID")
     private String routeId;
 
-    @Column(name = "STOP_POINT_ID")
-    private String stopPointId;
-
     @Column(name = "STOP_ORDER")
     private String stopOrder;
 
