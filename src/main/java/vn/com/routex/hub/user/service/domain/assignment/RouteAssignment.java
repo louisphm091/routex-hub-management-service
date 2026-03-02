@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+import vn.com.routex.hub.user.service.domain.auditing.AbstractAuditingEntity;
 
 import java.time.OffsetDateTime;
 
@@ -17,13 +19,17 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SuperBuilder
 @Table(name = "ROUTE_ASSIGNMENT")
-public class RouteAssignment {
+public class RouteAssignment extends AbstractAuditingEntity {
     @Id
     private String id;
 
     @Column(name = "ROUTE_ID")
     private String routeId;
+
+    @Column(name = "CREATOR")
+    private String creator;
 
     @Column(name = "VEHICLE_ID")
     private String vehicleId;

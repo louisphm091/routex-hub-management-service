@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 import vn.com.routex.hub.user.service.domain.auditing.AbstractAuditingEntity;
 
 import java.time.OffsetDateTime;
@@ -20,6 +21,7 @@ import java.time.OffsetDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@SuperBuilder
 @Table(name = "ROUTE")
 public class Route extends AbstractAuditingEntity {
 
