@@ -13,6 +13,8 @@ import vn.com.routex.hub.user.service.interfaces.models.assignment.AssignRouteRe
 import vn.com.routex.hub.user.service.interfaces.models.assignment.AssignRouteResponse;
 import vn.com.routex.hub.user.service.interfaces.models.route.CreateRouteRequest;
 import vn.com.routex.hub.user.service.interfaces.models.route.CreateRouteResponse;
+import vn.com.routex.hub.user.service.interfaces.models.route.SearchRouteRequest;
+import vn.com.routex.hub.user.service.interfaces.models.route.SearchRouteResponse;
 
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.API_PATH;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.API_VERSION;
@@ -20,6 +22,7 @@ import static vn.com.routex.hub.user.service.infrastructure.persistence.constant
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.CREATE_PATH;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.MANAGEMENT_PATH;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.ROUTE_SERVICE;
+import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ApiConstant.SEARCH_PATH;
 
 @RestController
 @RequestMapping(API_PATH + API_VERSION + MANAGEMENT_PATH + ROUTE_SERVICE)
@@ -36,6 +39,12 @@ public class RouteManagementController {
     @PostMapping(ASSIGNMENT_PATH)
     public ResponseEntity<AssignRouteResponse> assignRoute(@Valid @RequestBody AssignRouteRequest request) {
         return routeManagementFacade.assignRoute(request);
+    }
+
+
+    @PostMapping(SEARCH_PATH)
+    public ResponseEntity<SearchRouteResponse> searchRoute(@Valid @RequestBody SearchRouteRequest request) {
+        return routeManagementFacade.searchRoute(request);
     }
 
 }

@@ -1,5 +1,6 @@
 package vn.com.routex.hub.user.service.application.services.impl;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import vn.com.routex.hub.user.service.application.services.VehicleManagementService;
@@ -24,6 +25,7 @@ public class VehicleManagementServiceImpl implements VehicleManagementService {
     private final VehicleRepository vehicleRepository;
 
     @Override
+    @Transactional
     public AddVehicleResponse addVehicle(AddVehicleRequest request) {
         if(vehicleRepository.existsByVehiclePlate(request.getData().getVehiclePlate())) {
             throw new BusinessException(request.getRequestId(), request.getRequestDateTime(), request.getChannel(),

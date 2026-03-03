@@ -32,7 +32,7 @@ public class JsonUtils {
         try {
             return objectMapper.writeValueAsString(message);
 
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new BusinessException(ExceptionUtils.buildResultResponse(TIMEOUT_ERROR, TIMEOUT_ERROR_MESSAGE));
         }
     }
@@ -40,7 +40,7 @@ public class JsonUtils {
     public Object parseToObject(String message, Class<Object> clazz) throws JsonProcessingException {
         try {
             return objectMapper.readValue(message, clazz);
-        } catch(Exception e) {
+        } catch (Exception e) {
             throw new BusinessException(ExceptionUtils.buildResultResponse(TIMEOUT_ERROR, TIMEOUT_ERROR_MESSAGE));
         }
     }
@@ -49,7 +49,7 @@ public class JsonUtils {
         ObjectMapper mapper = JsonMapper.builder()
                 .accessorNaming(new DefaultAccessorNamingStrategy.Provider().withBuilderPrefix(""))
                 .configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true)
-                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS,false)
+                .configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .configure(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT, true)
                 .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)

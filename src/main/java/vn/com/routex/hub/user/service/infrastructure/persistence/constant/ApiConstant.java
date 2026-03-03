@@ -9,4 +9,5 @@ public class ApiConstant {
     public static final String ASSIGNMENT_PATH = "/assignment";
     public static final String VEHICLE_SERVICE = "/vehicle-service";
     public static final String ADD_PATH = "/add";
+    public static final String SEARCH_PATH = "/search";
 }

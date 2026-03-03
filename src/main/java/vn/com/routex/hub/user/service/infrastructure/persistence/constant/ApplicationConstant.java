@@ -12,6 +12,8 @@ public class  ApplicationConstant {
     public static final String DATE_MONTH_YEAR_REGEX = "^(19|20)\\d{2}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
     public static final String OFFSET_DATE_TIME_REGEX = "^(?:\\d{4})-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):(?:[0-5]\\d):(?:[0-5]\\d)(?:\\.\\d{1,9})?(?:Z|[+\\-](?:0\\d|1\\d|2[0-3]):[0-5]\\d)$";
     public static final String VEHICLE_PLATE_REGEX = "^(0[1-9]|[1-9]\\d)(?:[A-Z]|LD|NG)-\\d{3}\\.\\d{2}$";
+    public static final String HOUR_MINUTES_REGEX = "^([01]\\d|2[0-3]):([0-5]\\d)$";
+    public static final String YEAR_MONTH_DATE_REGEX = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
 
 
 }
