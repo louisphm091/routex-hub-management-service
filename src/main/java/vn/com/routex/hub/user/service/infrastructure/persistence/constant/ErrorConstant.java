@@ -9,6 +9,7 @@ public class ErrorConstant {
     public static final String TIMEOUT_ERROR_MESSAGE = "Timeout";
     public static final String RECORD_NOT_FOUND = "1407";
     public static final String VEHICLE_NOT_FOUND = "Vehicle not found";
+    public static final String ROUTE_SEAT_NOT_FOUND = "Rout Seat with Route Id %s is not exists";
     public static final String RECORD_NOT_FOUND_MESSAGE = "Record not found";
     public static final String SUCCESS_CODE = "0000";
     public static final String SUCCESS_MESSAGE = "Success";
@@ -27,6 +28,7 @@ public class ErrorConstant {
     public static final String INVALID_PAGE_NUMBER = "pageNumber must be >= 0";
 
     public static final String DUPLICATE_VEHICLE = "Vehicle is already exists by %s";
+    public static final String ROUTE_SEAT_EXIST = "Route Seat with routeId %s already created";
     public static final String DUPLICATE_ROUTE_ASSIGNMENT = "Route Assignment with routeId %s already exists";
     public static final String RECORD_EXISTS = "Record is already existed";
     public static final String INVALID_START_TIME = "Planned Start Time must be before Planned End Time";

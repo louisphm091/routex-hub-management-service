@@ -6,9 +6,11 @@ import org.springframework.stereotype.Service;
 import vn.com.routex.hub.user.service.application.services.VehicleManagementService;
 import vn.com.routex.hub.user.service.domain.vehicle.Vehicle;
 import vn.com.routex.hub.user.service.domain.vehicle.VehicleRepository;
+import vn.com.routex.hub.user.service.domain.vehicle.VehicleStatus;
 import vn.com.routex.hub.user.service.domain.vehicle.VehicleType;
 import vn.com.routex.hub.user.service.infrastructure.persistence.exception.BusinessException;
 import vn.com.routex.hub.user.service.infrastructure.persistence.utils.ExceptionUtils;
+import vn.com.routex.hub.user.service.interfaces.models.result.ApiResult;
 import vn.com.routex.hub.user.service.interfaces.models.vehicle.AddVehicleRequest;
 import vn.com.routex.hub.user.service.interfaces.models.vehicle.AddVehicleResponse;
 
@@ -17,6 +19,8 @@ import java.util.UUID;
 
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.DUPLICATE_ERROR;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.DUPLICATE_VEHICLE;
+import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_CODE;
+import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_MESSAGE;
 
 @Service
 @RequiredArgsConstructor
@@ -39,6 +43,7 @@ public class VehicleManagementServiceImpl implements VehicleManagementService {
                 .seatCapacity(Integer.valueOf(request.getData().getSeatCapacity()))
                 .manufacturer(request.getData().getManufacturer())
                 .createdAt(LocalDateTime.now())
+                .status(VehicleStatus.AVAILABLE)
                 .creator(request.getData().getCreator())
                 .createdBy(request.getData().getCreator())
                 .build();
@@ -49,6 +54,10 @@ public class VehicleManagementServiceImpl implements VehicleManagementService {
                 .requestId(request.getRequestId())
                 .requestDateTime(request.getRequestDateTime())
                 .channel(request.getChannel())
+                .result(ApiResult.builder()
+                        .responseCode(SUCCESS_CODE)
+                        .description(SUCCESS_MESSAGE)
+                        .build())
                 .data(AddVehicleResponse.AddVehicleResponseData.builder()
                         .creator(request.getData().getCreator())
                         .status(newVehicle.getStatus())
@@ -56,6 +65,7 @@ public class VehicleManagementServiceImpl implements VehicleManagementService {
                         .vehiclePlate(request.getData().getVehiclePlate())
                         .seatCapacity(request.getData().getSeatCapacity())
                         .manufacturer(request.getData().getManufacturer())
+                        .status(VehicleStatus.AVAILABLE)
                         .build())
                 .build();
     }

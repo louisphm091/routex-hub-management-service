@@ -46,8 +46,11 @@ public class SearchRouteRequest extends BaseRequest {
         @Pattern(regexp = ONLY_CHARACTER_REGEX, message = "only characters are allowed for this field")
         private String destination;
 
-        @Pattern(regexp = YEAR_MONTH_DATE_REGEX, message = "must be in")
+        @Pattern(regexp = YEAR_MONTH_DATE_REGEX, message = "must be in format of yyyy-MM-dd")
         private String departureDate;
+
+        @Pattern(regexp = ONLY_NUMBER_REGEX, message = "only digits are allowed for this field")
+        private String seat;
 
         @Pattern(regexp = HOUR_MINUTES_REGEX, message = "must be in format of HH:mm")
         private String fromTime;

@@ -36,11 +36,14 @@ public class Vehicle extends AbstractAuditingEntity {
     @Enumerated(EnumType.STRING)
     private VehicleType type;
 
-    @Column(name = "VEHICLE_PLATE")
+    @Column(name = "VEHICLE_PLATE", nullable = false)
     private String vehiclePlate;
 
     @Column(name = "SEAT_CAPACITY")
     private Integer seatCapacity;
+
+    @Column(name = "HAS_FLOOR")
+    private boolean hasFloor;
 
     @Column(name = "MANUFACTURER")
     private String manufacturer;

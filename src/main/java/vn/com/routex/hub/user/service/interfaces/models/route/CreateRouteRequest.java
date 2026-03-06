@@ -38,6 +38,10 @@ public class CreateRouteRequest extends BaseRequest {
         @NotNull
         private String creator;
 
+        @NotNull
+        @NotBlank
+        private String pickupBranch;
+
         @NotBlank
         @NotNull
         private String origin;

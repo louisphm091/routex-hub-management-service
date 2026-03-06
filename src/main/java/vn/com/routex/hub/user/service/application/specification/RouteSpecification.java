@@ -3,6 +3,7 @@ package vn.com.routex.hub.user.service.application.specification;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.domain.Specification;
 import vn.com.routex.hub.user.service.domain.route.Route;
+import vn.com.routex.hub.user.service.domain.route.RouteStatus;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,10 +23,19 @@ public class RouteSpecification {
         return (root, query, cb) -> cb.like(cb.lower(root.get("destination")), "%" + v + "%");
     }
 
+    public static Specification<Route> assignedStatus(RouteStatus status) {
+        return (root, query, cb) -> {
+            if(status == null) {
+                return cb.conjunction();
+            }
+            return cb.equal(root.get("status"), status);
+        };
+    }
+
     public static Specification<Route> plannedStartBetween(OffsetDateTime startInitialize, OffsetDateTime endInitialize) {
         return (root, query, cb) -> cb.and(
             cb.greaterThanOrEqualTo(root.get("plannedStartTime"), startInitialize),
-            cb.lessThan(root.get("plannedEndTime"), endInitialize));
+            cb.lessThan(root.get("plannedStartTime"), endInitialize));
     }
 
     public static OffsetDateTime dayStart(LocalDate date, ZoneId zoneId) {
