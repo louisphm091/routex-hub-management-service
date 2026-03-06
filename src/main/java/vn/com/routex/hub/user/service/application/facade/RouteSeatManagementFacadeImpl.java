@@ -9,6 +9,8 @@ import vn.com.routex.hub.user.service.infrastructure.persistence.exception.Busin
 import vn.com.routex.hub.user.service.infrastructure.persistence.utils.ExceptionUtils;
 import vn.com.routex.hub.user.service.interfaces.models.seat.GetAllSeatRequest;
 import vn.com.routex.hub.user.service.interfaces.models.seat.GetAllSeatResponse;
+import vn.com.routex.hub.user.service.interfaces.models.seat.HoldSeatRequest;
+import vn.com.routex.hub.user.service.interfaces.models.seat.HoldSeatResponse;
 
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR_MESSAGE;
@@ -33,5 +35,21 @@ public class RouteSeatManagementFacadeImpl implements RouteSeatManagementFacade{
             return new ResponseEntity<>(response , HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(response ,HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<HoldSeatResponse> holdSeat(HoldSeatRequest request) {
+        HoldSeatResponse response = routeSeatManagementService.holdSeat(request);
+        if(response == null) {
+            throw new BusinessException(request.getRequestId(), request.getRequestDateTime(), request.getChannel(),
+                    ExceptionUtils.buildResultResponse(TIMEOUT_ERROR, TIMEOUT_ERROR_MESSAGE));
+        }
+        response.setRequestId(request.getRequestId());
+        response.setRequestDateTime(request.getRequestDateTime());
+        response.setChannel(request.getChannel());
+        if(response.getData() == null) {
+            return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

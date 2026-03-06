@@ -65,6 +65,7 @@ import static vn.com.routex.hub.user.service.infrastructure.persistence.constant
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.INVALID_START_TIME;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.INVALID_STOP_ORDER;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.RECORD_NOT_FOUND;
+import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.ROUTE_NOT_FOUND;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.ROUTE_SEAT_EXIST;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_CODE;
 import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.SUCCESS_MESSAGE;
@@ -200,6 +201,8 @@ public class RouteManagementServiceImpl implements RouteManagementService {
         for (int i = half + 1; i <= seatCapacity; i++) {
             seatNos.add("B" + String.format("%02d", i));
         }
+
+        sLog.info("SeatNos: {}", seatNos);
         return seatNos;
     }
 
@@ -225,6 +228,12 @@ public class RouteManagementServiceImpl implements RouteManagementService {
                 .status(RouteAssignmentStatus.ASSIGNED)
                 .build();
 
+        Route route = routeRepository.findById(request.getData().getRouteId())
+                        .orElseThrow(() -> new BusinessException(request.getRequestId(), request.getRequestDateTime(), request.getChannel(),
+                                ExceptionUtils.buildResultResponse(RECORD_NOT_FOUND, String.format(ROUTE_NOT_FOUND, request.getData().getRouteId()))));
+
+
+        route.setStatus(RouteStatus.ASSIGNED);
         routeAssignmentRepository.save(routeAssignment);
 
         if(routeSeatRepository.existsByRouteId(request.getData().getRouteId())) {

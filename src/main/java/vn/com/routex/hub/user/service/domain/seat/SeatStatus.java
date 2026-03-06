@@ -3,7 +3,7 @@ package vn.com.routex.hub.user.service.domain.seat;
 public enum SeatStatus {
 
     AVAILABLE,
-    PROCESSING,
+    HELD,
     SOLD,
     BLOCKED
 }

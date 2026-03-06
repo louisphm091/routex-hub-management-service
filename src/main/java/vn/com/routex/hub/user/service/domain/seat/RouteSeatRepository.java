@@ -29,4 +29,6 @@ public interface RouteSeatRepository extends JpaRepository<RouteSeat, String> {
     List<String> routeId(String routeId);
 
     List<RouteSeat> findAllByRouteIdOrderBySeatNoAsc(String routeId);
+
+    List<RouteSeat> findAllByRouteIdAndSeatNoIn(String routeId, List<String> seatNos);
 }

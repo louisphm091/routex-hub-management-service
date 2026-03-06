@@ -8,6 +8,8 @@ public class ErrorConstant {
     public static final String TIMEOUT_ERROR = "0600";
     public static final String TIMEOUT_ERROR_MESSAGE = "Timeout";
     public static final String RECORD_NOT_FOUND = "1407";
+    public static final String ROUTE_NOT_FOUND = "Route with Id %s not found";
+    public static final String SEAT_NOT_FOUND = "Seats not found";
     public static final String VEHICLE_NOT_FOUND = "Vehicle not found";
     public static final String ROUTE_SEAT_NOT_FOUND = "Rout Seat with Route Id %s is not exists";
     public static final String RECORD_NOT_FOUND_MESSAGE = "Record not found";
@@ -21,12 +23,13 @@ public class ErrorConstant {
     public static final String INVALID_HTTP_REQUEST_RESOURCE_ERROR_MESSAGE = "Resource %s path is not exists";
 
     public static final String INVALID_INPUT_ERROR = "0310";
+    public static final String SEAT_NOT_AVAILABLE = "Seat %s is not available";
     public static final String INVALID_INPUT_MESSAGE = "Invalid Input";
     public static final String INVALID_REQUEST_TIMESTAMP = "5186";
     public static final String DUPLICATE_ERROR = "9400";
     public static final String INVALID_PAGE_SIZE = "pageSize must be in [1..100]";
     public static final String INVALID_PAGE_NUMBER = "pageNumber must be >= 0";
-
+    public static final String INVALID_SEAT_NO = "seatNos must not be empty";
     public static final String DUPLICATE_VEHICLE = "Vehicle is already exists by %s";
     public static final String ROUTE_SEAT_EXIST = "Route Seat with routeId %s already created";
     public static final String DUPLICATE_ROUTE_ASSIGNMENT = "Route Assignment with routeId %s already exists";

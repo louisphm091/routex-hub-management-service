@@ -1,12 +1,9 @@
-package vn.com.routex.hub.user.service.domain.seat;
-
+package vn.com.routex.hub.user.service.domain.booking;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -14,8 +11,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
+import vn.com.routex.hub.user.service.domain.auditing.AbstractAuditingEntity;
 
-import java.time.OffsetDateTime;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
@@ -23,31 +21,30 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 @SuperBuilder
 @Entity
-@Table(name = "ROUTE_SEAT")
-public class RouteSeat {
+@Table(name = "BOOKING_SEAT")
+public class BookingSeat extends AbstractAuditingEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;
 
-    @Column(name = "ROUTE_ID")
+    @Column(name = "BOOKING_ID", nullable = false)
+    private String bookingId;
+
+    @Column(name = "ROUTE_ID", nullable = false)
     private String routeId;
 
     @Column(name = "SEAT_NO")
     private String seatNo;
 
+    @Column(name = "PRICE")
+    private BigDecimal price;
+
     @Column(name = "STATUS")
     @Enumerated(EnumType.STRING)
-    private SeatStatus status;
+    private BookingSeatStatus status;
 
     @Column(name = "TICKET_ID")
     private String ticketId;
-
-    @Column(name = "HOLD_UNTIL")
-    private OffsetDateTime holdUntil;
-
-    @Column(name = "HOLD_BY")
-    private String holdBy;
 
     @Column(name = "CREATOR")
     private String creator;
