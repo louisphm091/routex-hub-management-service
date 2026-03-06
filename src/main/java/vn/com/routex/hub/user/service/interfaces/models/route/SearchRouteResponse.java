@@ -25,10 +25,14 @@ public class SearchRouteResponse extends BaseResponse {
     @SuperBuilder
     public static class SearchRouteResponseData {
         private String id;
+        private String pickupBranch;
         private String origin;
         private String destination;
+        private Long availableSeats;
         private OffsetDateTime plannedStartTime;
         private OffsetDateTime plannedEndTime;
+        private String vehiclePlate;
+        private boolean hasFloor;
         private String routeCode;
         private List<SearchStopPoints> stopPoints;
     }

@@ -3,6 +3,8 @@ package vn.com.routex.hub.user.service.domain.assignment;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -41,6 +43,7 @@ public class RouteAssignment extends AbstractAuditingEntity {
     private OffsetDateTime unAssignedAt;
 
     @Column(name = "STATUS")
+    @Enumerated(EnumType.STRING)
     private RouteAssignmentStatus status;
 
 }

@@ -27,6 +27,7 @@ public class CreateRouteResponse extends BaseResponse {
     public static class CreateRouteResponseData {
         private String id;
         private String creator;
+        private String pickupBranch;
         private String routeCode;
         private String origin;
         private String destination;
