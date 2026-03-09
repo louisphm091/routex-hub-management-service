@@ -14,7 +14,6 @@ import vn.com.routex.hub.user.service.interfaces.models.result.ApiResult;
 import vn.com.routex.hub.user.service.interfaces.models.vehicle.AddVehicleRequest;
 import vn.com.routex.hub.user.service.interfaces.models.vehicle.AddVehicleResponse;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 

@@ -1,7 +1,5 @@
 package vn.com.routex.hub.user.service.interfaces.models.authorities;
 
-import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

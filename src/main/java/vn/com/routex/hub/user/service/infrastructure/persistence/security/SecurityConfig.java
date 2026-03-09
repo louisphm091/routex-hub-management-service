@@ -11,8 +11,6 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
-import vn.com.go.routex.identity.security.exception.CustomAccessDeniedHandler;
-import vn.com.go.routex.identity.security.exception.CustomAuthenticationEntryPoint;
 
 import java.util.List;
 
