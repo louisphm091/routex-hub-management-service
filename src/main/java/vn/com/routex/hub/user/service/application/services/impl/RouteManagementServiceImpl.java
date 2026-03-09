@@ -128,7 +128,7 @@ public class RouteManagementServiceImpl implements RouteManagementService {
                 .plannedStartTime(plannedStartTime)
                 .plannedEndTime(plannedEndTime)
                 .status(RouteStatus.PLANNED)
-                .createdAt(LocalDateTime.now())
+                .createdAt(OffsetDateTime.now())
                 .createdBy(request.getData().getCreator())
                 .build();
 
@@ -145,7 +145,7 @@ public class RouteManagementServiceImpl implements RouteManagementService {
                             .routeId(newRoute.getId())
                             .stopOrder(point.getStopOrder())
                             .creator(request.getData().getCreator())
-                            .createdAt(LocalDateTime.now())
+                            .createdAt(OffsetDateTime.now())
                             .createdBy(request.getData().getCreator())
                             .plannedArrivalTime(arrival)
                             .plannedDepartureTime(departure)
