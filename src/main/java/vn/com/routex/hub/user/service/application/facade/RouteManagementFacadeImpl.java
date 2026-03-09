@@ -2,12 +2,9 @@ package vn.com.routex.hub.user.service.application.facade;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import vn.com.routex.hub.user.service.application.services.RouteManagementService;
-import vn.com.routex.hub.user.service.infrastructure.persistence.exception.BusinessException;
-import vn.com.routex.hub.user.service.infrastructure.persistence.utils.ExceptionUtils;
 import vn.com.routex.hub.user.service.infrastructure.utils.HttpResponseUtil;
 import vn.com.routex.hub.user.service.interfaces.models.assignment.AssignRouteRequest;
 import vn.com.routex.hub.user.service.interfaces.models.assignment.AssignRouteResponse;
@@ -15,9 +12,6 @@ import vn.com.routex.hub.user.service.interfaces.models.route.CreateRouteRequest
 import vn.com.routex.hub.user.service.interfaces.models.route.CreateRouteResponse;
 import vn.com.routex.hub.user.service.interfaces.models.route.SearchRouteRequest;
 import vn.com.routex.hub.user.service.interfaces.models.route.SearchRouteResponse;
-
-import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR;
-import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR_MESSAGE;
 
 @Component
 @RequiredArgsConstructor

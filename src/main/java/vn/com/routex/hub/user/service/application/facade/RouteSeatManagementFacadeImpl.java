@@ -1,20 +1,14 @@
 package vn.com.routex.hub.user.service.application.facade;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import vn.com.routex.hub.user.service.application.services.RouteSeatManagementService;
-import vn.com.routex.hub.user.service.infrastructure.persistence.exception.BusinessException;
-import vn.com.routex.hub.user.service.infrastructure.persistence.utils.ExceptionUtils;
 import vn.com.routex.hub.user.service.infrastructure.utils.HttpResponseUtil;
 import vn.com.routex.hub.user.service.interfaces.models.seat.GetAllSeatRequest;
 import vn.com.routex.hub.user.service.interfaces.models.seat.GetAllSeatResponse;
 import vn.com.routex.hub.user.service.interfaces.models.seat.HoldSeatRequest;
 import vn.com.routex.hub.user.service.interfaces.models.seat.HoldSeatResponse;
-
-import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR;
-import static vn.com.routex.hub.user.service.infrastructure.persistence.constant.ErrorConstant.TIMEOUT_ERROR_MESSAGE;
 
 @Component
 @RequiredArgsConstructor

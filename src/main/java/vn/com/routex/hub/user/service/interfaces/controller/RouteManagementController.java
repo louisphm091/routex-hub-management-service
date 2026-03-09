@@ -28,7 +28,7 @@ import static vn.com.routex.hub.user.service.infrastructure.persistence.constant
 @RestController
 @RequestMapping(API_PATH + API_VERSION + MANAGEMENT_PATH + ROUTE_SERVICE)
 @RequiredArgsConstructor
-@PreAuthorize("hasAuthority('route:management')")
+@PreAuthorize("hasAuthority('route:management') and hasRole('ADMIN')")
 public class RouteManagementController {
 
     private final RouteManagementFacade routeManagementFacade;

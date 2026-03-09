@@ -20,7 +20,6 @@ import vn.com.routex.hub.user.service.interfaces.models.base.BaseRequest;
 import vn.com.routex.hub.user.service.interfaces.models.base.BaseResponse;
 import vn.com.routex.hub.user.service.interfaces.models.result.ApiResult;
 
-import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
