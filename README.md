@@ -59,7 +59,7 @@ The Go Routex ecosystem consists of multiple repositories organized by domain an
 
 | Repository | Description |
 |------------|------------|
-| go-routex--deployment-config | GitOps deployment configuration |
+| go-routex-deployment-config | GitOps deployment configuration |
 | CI/CD Pipelines | Automated build, tag, release & deployment |
 | Kubernetes Manifests | Cluster deployment resources |
 
